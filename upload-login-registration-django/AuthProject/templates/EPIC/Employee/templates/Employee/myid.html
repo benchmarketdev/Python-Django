@@ -1,0 +1,268 @@
+{% extends "Employee/registration_base.html" %}
+{% load staticfiles %}
+
+    {% block body-section %}
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Ecom Express</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/employee/registration/myprofile/">MY PROFILE</a>
+                    </li>
+                    <li>
+                        <a href="/employee/registration/mycontact/">MY CONTACT</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">MY ID</a>
+                    </li>
+                    <li>
+                        <a href="#">MY FAMILY</a>
+                    </li>
+                    <li>
+                        <a href="#">MY ACADEMIC</a>
+                    </li>
+                    <li>
+                        <a href="#">MY EXPERIANCE</a>
+                    </li>
+                    <li>
+                        <a href="#">ACCOUNT</a>
+                    </li>
+                    <li>
+                        <a href="#">REFERENCE</a>
+                    </li>
+                    <li>
+                        <a href="#">REFERRAL</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+    <form role="form" method="post" action="" enctype="multipart/form-data" >
+        <fieldset>
+        <div class="row">
+            <div class="col-lg-8 cs-box">
+                <h3 class="text-warning">MY ID</h3>
+                <hr/>
+                <h5 class="text-primary">AADHAR</h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Aadhar Number *</label>
+                            <input id="aadhar" name="aadhar" type="text" placeholder="Aadhar Number" class="form-control" value="{{idObj.aadharNumber}}" required="">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            {% if idObj.aadharCopy %}
+                            <label>Aadhar Scan Image (Max. 200KB) &#10004;</label>
+                            <input id="addhas" name="addhas" type="file" class="form-control" style="padding: 0px;" accept="image/*" >
+                            <a href="/{{idObj.aadharCopy}}" target="_blank"> Click to view </a>
+                            {% else %}
+                            <label>Aadhar Scan Image (Max. 200KB) *</label>
+                            <input id="addhas" name="addhas" type="file" class="form-control" style="padding: 0px;" accept="image/*" required="">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <hr/>
+                <h5 class="text-primary">PAN CARD</h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>PAN Card Number *</label>
+                            <input id="pan" name="pan" type="text" placeholder="PAN Card Number" class="form-control" value="{{idObj.panNumber}}" required="">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            {% if idObj.panCopy %}
+                            <label>PAN Scan Image (Max. 200KB) &#10004;</label>
+                            <input id="pans" name="pans" type="file" class="form-control" style="padding: 0px;" accept="image/*" >
+                            <a href="/{{idObj.panCopy}}" target="_blank"> Click to view </a>
+                            {% else %}
+                            <label>PAN Scan Image (Max. 200KB) *</label>
+                            <input id="pans" name="pans" type="file" class="form-control" style="padding: 0px;" accept="image/*" required="">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <hr/>
+                <h5 class="text-primary">DRIVING LICENSE</h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Diving License Number *</label>
+                            <input id="dl" name="dl" type="text" placeholder="Diving License Number" class="form-control" value="{{idObj.dlNumber}}" required="" >
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            {% if idObj.dlCopy %}
+                            <label>DL Scan Image (Max. 200KB) &#10004;</label>
+                            <input id="dls" name="dls" type="file" class="form-control" style="padding: 0px;" accept="image/*" >
+                            <a href="/{{idObj.dlCopy}}" target="_blank"> Click to view </a>
+                            {% else %}
+                            <label>DL Scan Image (Max. 200KB) *</label>
+                            <input id="dls" name="dls" type="file" class="form-control" style="padding: 0px;" accept="image/*" required="" >
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <hr/>
+                <h5 class="text-primary">VOTER</h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Voter ID Number </label>
+                            <input id="voter" name="voter" type="text" placeholder="Voter ID Number" class="form-control" value="{{idObj.voterNumber}}" >
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            {% if idObj.voterCopy %}
+                            <label>Voter ID Scan Image (Max. 200KB) &#10004;</label>
+                            <input id="voters" name="voters" type="file" class="form-control" style="padding: 0px;" accept="image/*" >
+                            <a href="/{{idObj.voterCopy}}" target="_blank"> Click to view </a>
+                            {% else %}
+                            <label>Voter ID Scan Image (Max. 200KB) </label>
+                            <input id="voters" name="voters" type="file" class="form-control" style="padding: 0px;" accept="image/*" >
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <hr/>
+                <h5 class="text-primary">PASSPORT</h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Passport Number </label>
+                            <input id="passport" name="passport" type="text" placeholder="Passport Number" class="form-control" value="{{idObj.passportNumber}}" >
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            {% if idObj.passportCopy %}
+                            <label>Passport Scan Image (Max. 200KB) &#10004;</label>
+                            <input id="passports" name="passports" type="file" class="form-control" style="padding: 0px;" accept="image/*" >
+                            <a href="/{{idObj.passportCopy}}" target="_blank"> Click to view </a>
+                            {% else %}
+                            <label>Passport Scan Image (Max. 200KB) </label>
+                            <input id="passports" name="passports" type="file" class="form-control" style="padding: 0px;" accept="image/*" >
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        {% csrf_token %}
+                        <input type="hidden" name="iD" value="{{idObj.id}}">
+                        <button type="button" onclick="previous('/employee/registration/mycontact/')" class="btn btn-primary" ><i class="glyphicon icon-arrow-left"></i> Previous</button>
+                        <button class="btn btn-primary" type="submit">Next <i class="glyphicon icon-arrow-right"></i></button>
+                    </div>
+                </div>
+                <br>
+                
+            </div>
+
+            <div class="col-lg-4">
+                <h3 style="margin-top: 0px;">Completion</h3>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:30%">30%</div>
+                </div>
+                <h3 style="margin-top: 30px;">Instructions</h3>
+                <ol>
+                    <li> Please provide accurate and correct details in all fields.
+                    </li><li> Scanned copy of Aadhar card, PAN card, Driving License and Passport attached must be of size less than 200KB (image file only).
+                    </li><li> Provinding Aadhar card and PAN card are mandatory.
+                    </li><li> Please verify all details before going to next page.</li>
+                </ol>
+            </div>
+        </div>
+        <br><br>
+        <!-- /.row -->
+        </fieldset>
+    </form>
+
+    </div>
+    <!-- /.container -->
+
+
+    <script type="text/javascript">
+        document.getElementById('addhas').onchange = function(){
+            var filesize = document.getElementById('addhas').files[0].size;
+            filesize = filesize / 1024;
+            if(filesize > 200){
+                document.getElementById('addhas').setCustomValidity("Photo must less than 200KB.");
+            } else {
+                document.getElementById('addhas').setCustomValidity("");
+            }  
+        }
+
+        document.getElementById('pans').onchange = function(){
+            var filesize = document.getElementById('pans').files[0].size;
+            filesize = filesize / 1024;
+            if(filesize > 200){
+                document.getElementById('pans').setCustomValidity("Photo must less than 200KB.");
+            } else {
+                document.getElementById('pans').setCustomValidity("");
+            }  
+        }
+
+        document.getElementById('dls').onchange = function(){
+            var filesize = document.getElementById('dls').files[0].size;
+            filesize = filesize / 1024;
+            if(filesize > 200){
+                document.getElementById('dls').setCustomValidity("Photo must less than 200KB.");
+            } else {
+                document.getElementById('dls').setCustomValidity("");
+            }  
+        }
+
+        document.getElementById('voters').onchange = function(){
+            var filesize = document.getElementById('voters').files[0].size;
+            filesize = filesize / 1024;
+            if(filesize > 200){
+                document.getElementById('voters').setCustomValidity("Photo must less than 200KB.");
+            } else {
+                document.getElementById('voters').setCustomValidity("");
+            }  
+        }
+
+        document.getElementById('passports').onchange = function(){
+            var filesize = document.getElementById('passports').files[0].size;
+            filesize = filesize / 1024;
+            if(filesize > 200){
+                document.getElementById('passports').setCustomValidity("Photo must less than 200KB.");
+            } else {
+                document.getElementById('passports').setCustomValidity("");
+            }  
+        }
+
+    </script>
+
+
+    {% endblock %}

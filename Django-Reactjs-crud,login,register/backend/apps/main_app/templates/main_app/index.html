@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Log & Reg | Home</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'main_app/css/style.css' %}">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div id="content">
+		<h1>Registration Form:</h1>
+		<p>Please fill out completely</p>
+<!-- 		<br>
+ -->		<form action="/process" method="post">
+			{% csrf_token %}
+			<div>	
+			<p>First Name: </p><input type="text" name="first_name">
+			</div>
+			<div>	
+			<p>Last Name: </p><input type="text" name="last_name">
+			</div>
+			<div>	
+			<p>Email: </p><input type="text" name="email">
+			</div>
+			<div>	
+			<p>Password: </p><input type="password" name="password">
+			</div>
+			<div>	
+			<p>Confirm Password: </p><input type="password" name="confirm">
+			</div>
+			<input type="submit" name="submit" value="Submit">
+		</form><br>
+		{% if messages %}
+			<ul class="flash">
+			{% for message in messages %}
+				<li>{{ message }}</li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+		<br>
+		<h1>Login:</h1>
+		<form action="/login" method="post">
+			{% csrf_token %}
+			<div>	
+			<p>Email: </p><input type="text" name="email">
+			</div>
+			<div>	
+			<p>Password: </p><input type="password" name="password">
+			</div>
+			<input type="submit" name="submit" value="Submit">
+		</form>
+	</div>
+</body>
+</html>

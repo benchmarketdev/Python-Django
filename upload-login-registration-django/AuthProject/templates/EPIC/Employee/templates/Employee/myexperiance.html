@@ -1,0 +1,451 @@
+{% extends "Employee/registration_base.html" %}
+{% load staticfiles %}
+
+    {% block body-section %}
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Ecom Express</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/employee/registration/myprofile/">MY PROFILE</a>
+                    </li>
+                    <li>
+                        <a href="/employee/registration/mycontact/">MY CONTACT</a>
+                    </li>
+                    <li>
+                        <a href="/employee/registration/myid/">MY ID</a>
+                    </li>
+                    <li>
+                        <a href="/employee/registration/myfamily/">MY FAMILY</a>
+                    </li>
+                    <li>
+                        <a href="/employee/registration/myacademic/">MY ACADEMIC</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">MY EXPERIANCE</a>
+                    </li>
+                    <li>
+                        <a href="#">ACCOUNT</a>
+                    </li>
+                    <li>
+                        <a href="#">REFERENCE</a>
+                    </li>
+                    <li>
+                        <a href="#">REFERRAL</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+    <form role="form" method="post" action="" enctype="multipart/form-data" >
+        <fieldset>
+        <div class="row">
+            <div class="col-lg-8 cs-box">
+                <h3 class="text-warning">MY EXPERIANCE</h3>
+                <hr/>
+                <h5 class="text-primary">PREVIOUS EXPERIANCE 1</h4>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Company </label>
+                            <input type="hidden" name="iD1" value="{{expObj.0.id}}">
+                            <input name="company1" type="text" placeholder="Company" class="form-control" value="{{expObj.0.company}}" >
+                        </div>
+                    </div>
+                     <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Address </label>
+                            <input name="address1" type="text" placeholder="Address" class="form-control" value="{{expObj.0.address}}">
+                        </div>
+                    </div>
+                     <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Designation </label>
+                            <input name="designation1" type="text" placeholder="Designation" class="form-control" value="{{expObj.0.designation}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Reporting to </label>
+                            <input name="reporting1" type="text" placeholder="Reporting to" class="form-control" value="{{expObj.0.reportingTo}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Contact No. </label>
+                            <input name="contact1" type="text" placeholder="Contact No." class="form-control" value="{{expObj.0.contactNumber}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Last dawn salary </label>
+                            <input name="salary1" type="text" placeholder="Last dawn salary" class="form-control" value="{{expObj.0.lastDrawnSalary}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Date of Joining </label>
+                            <div class="controls input-append date form_date" data-date="" data-date-format="dd/mm/yyyy" data-link-field="dtp_input1" data-link-format="yyyy-mm-dd">
+                                <input id="doj1" name="doj1" type="text" placeholder="DD/MM/YYYY" class="form-control" pattern="\d{1,2}/\d{1,2}/\d{4}" value="{{ expObj.0.dateOfJoining|date:'d/m/Y' }}">
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                            <input type="hidden" id="dtp_input1" name="idoj1" value="" />
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Date of Relieving </label>
+                            <div class="controls input-append date form_date2" data-date="" data-date-format="dd/mm/yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                <input id="dor1" name="dor1" type="text" placeholder="DD/MM/YYYY" class="form-control" pattern="\d{1,2}/\d{1,2}/\d{4}" value="{{ expObj.0.dateOfRelieving|date:'d/m/Y' }}">
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                            <input type="hidden" id="dtp_input2" name="idor1" value="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Total Time </label>
+                            <input name="time1" type="text" placeholder="Total Time" class="form-control" value="{{expObj.0.totalTime}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Reason for Separation </label>
+                            <input name="reason1" type="text" placeholder="Reason for Separation" class="form-control" value="{{expObj.0.reasonForSeparation}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Payslip Scan (Max. 200KB) </label>
+                            <input id="payslip1" name="payslip1" type="file" class="form-control" style="padding: 0px;" accept="image/*" >
+                            {% if expObj.0.paySlipCopy %}<a href="/{{expObj.0.paySlipCopy}}" target="_blank"> Click to view </a>{% endif %}
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Relieving Scan (Mx 200KB) </label>
+                            <input id="relieving1" name="relieving1" type="file" class="form-control" style="padding: 0px;" accept="image/*" >
+                            {% if expObj.0.relievingCopy %}<a href="/{{expObj.0.relievingCopy}}" target="_blank"> Click to view </a>{% endif %}
+                        </div>
+                    </div>
+                </div>
+
+
+                <hr/>
+                <h5 class="text-primary">PREVIOUS EXPERIANCE 2</h4>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Company </label>
+                            <input type="hidden" name="iD2" value="{{expObj.1.id}}">
+                            <input name="company2" type="text" placeholder="Company" class="form-control" value="{{expObj.1.company}}" >
+                        </div>
+                    </div>
+                     <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Address </label>
+                            <input name="address2" type="text" placeholder="Address" class="form-control" value="{{expObj.1.address}}" >
+                        </div>
+                    </div>
+                     <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Designation </label>
+                            <input name="designation2" type="text" placeholder="Designation" class="form-control" value="{{expObj.1.designation}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Reporting to </label>
+                            <input name="reporting2" type="text" placeholder="Reporting to" class="form-control" value="{{expObj.1.reportingTo}}" >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Contact No. </label>
+                            <input name="contact2" type="text" placeholder="Contact No." class="form-control" value="{{expObj.1.contactNumber}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Last dawn salary </label>
+                            <input name="salary2" type="text" placeholder="Last dawn salary" class="form-control" value="{{expObj.1.lastDrawnSalary}}" >
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Date of Joining </label>
+                            <div class="controls input-append date form_date3" data-date="" data-date-format="dd/mm/yyyy" data-link-field="dtp_input3" data-link-format="yyyy-mm-dd">
+                                <input id="doj2" name="doj2" type="text" placeholder="DD/MM/YYYY" class="form-control" pattern="\d{1,2}/\d{1,2}/\d{4}" value="{{ expObj.1.dateOfJoining|date:'d/m/Y' }}">
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                            <input type="hidden" id="dtp_input2" name="idoj2" value="" />
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Date of Relieving </label>
+                            <div class="controls input-append date form_date4" data-date="" data-date-format="dd/mm/yyyy" data-link-field="dtp_input4" data-link-format="yyyy-mm-dd">
+                                <input id="dor2" name="dor2" type="text" placeholder="DD/MM/YYYY" class="form-control" pattern="\d{1,2}/\d{1,2}/\d{4}" value="{{ expObj.1.dateOfRelieving|date:'d/m/Y' }}" >
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                            <input type="hidden" id="dtp_input4" name="idor2" value="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Total Time </label>
+                            <input name="time2" type="text" placeholder="Total Time" class="form-control" value="{{expObj.1.totalTime}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Reason for Separation </label>
+                            <input name="reason2" type="text" placeholder="Reason for Separation" class="form-control" value="{{expObj.1.reasonForSeparation}}" >
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Payslip Scan (Max. 200KB) </label>
+                            <input id="payslip2" name="payslip2" type="file" class="form-control" style="padding: 0px;" accept="image/*" >
+                            {% if expObj.1.paySlipCopy %}<a href="/{{expObj.1.paySlipCopy}}" target="_blank"> Click to view </a>{% endif %}
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Relieving Scan (Mx 200KB) </label>
+                            <input id="relieving2" name="relieving2" type="file" class="form-control" style="padding: 0px;" accept="image/*" >
+                            {% if expObj.1.relievingCopy %}<a href="/{{expObj.1.relievingCopy}}" target="_blank"> Click to view </a>{% endif %}
+                        </div>
+                    </div>
+                </div>
+
+
+                <hr/>
+                <h5 class="text-primary">PREVIOUS EXPERIANCE 3</h4>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Company </label>
+                            <input type="hidden" name="iD3" value="{{expObj.2.id}}">
+                            <input name="company3" type="text" placeholder="Company" class="form-control" value="{{expObj.2.company}}">
+                        </div>
+                    </div>
+                     <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Address </label>
+                            <input name="address3" type="text" placeholder="Address" class="form-control" value="{{expObj.2.address}}">
+                        </div>
+                    </div>
+                     <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Designation </label>
+                            <input name="designation3" type="text" placeholder="Designation" class="form-control" value="{{expObj.2.designation}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Reporting to </label>
+                            <input name="reporting3" type="text" placeholder="Reporting to" class="form-control" value="{{expObj.2.reportingTo}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Contact No. </label>
+                            <input name="contact3" type="text" placeholder="Contact No." class="form-control" value="{{expObj.2.contactNumber}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Last dawn salary </label>
+                            <input name="salary3" type="text" placeholder="Last dawn salary" class="form-control" value="{{expObj.2.lastDrawnSalary}}" >
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Date of Joining </label>
+                            <div class="controls input-append date form_date5" data-date="" data-date-format="dd/mm/yyyy" data-link-field="dtp_input5" data-link-format="yyyy-mm-dd">
+                                <input id="doj3" name="doj3" type="text" placeholder="DD/MM/YYYY" class="form-control" pattern="\d{1,2}/\d{1,2}/\d{4}" value="{{ expObj.2.dateOfJoining|date:'d/m/Y' }}">
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                            <input type="hidden" id="dtp_input3" name="idoj3" value="" />
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Date of Relieving </label>
+                            <div class="controls input-append date form_date6" data-date="" data-date-format="dd/mm/yyyy" data-link-field="dtp_input6" data-link-format="yyyy-mm-dd">
+                                <input id="dor3" name="dor3" type="text" placeholder="DD/MM/YYYY" class="form-control" pattern="\d{1,2}/\d{1,2}/\d{4}" value="{{ expObj.2.dateOfRelieving|date:'d/m/Y' }}">
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                            <input type="hidden" id="dtp_input6" name="idor3" value="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Total Time </label>
+                            <input name="time3" type="text" placeholder="Total Time" class="form-control" value="{{expObj.2.totalTime}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Reason for Separation </label>
+                            <input name="reason3" type="text" placeholder="Reason for Separation" class="form-control" value="{{expObj.2.reasonForSeparation}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Payslip Scan (Max. 200KB) </label>
+                            <input id="payslip3" name="payslip3" type="file" class="form-control" style="padding: 0px;" accept="image/*" >
+                            {% if expObj.2.paySlipCopy %}<a href="/{{expObj.2.paySlipCopy}}" target="_blank"> Click to view </a>{% endif %}
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Relieving Scan (Mx 200KB) </label>
+                            <input id="relieving3" name="relieving3" type="file" class="form-control" style="padding: 0px;" accept="image/*" >
+                            {% if expObj.2.relievingCopy %}<a href="/{{expObj.2.relievingCopy}}" target="_blank"> Click to view </a>{% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        {% csrf_token %}
+                        <input type="hidden" name="iD" value="{{expObj.id}}">
+                        <button type="button" onclick="previous('/employee/registration/myacademic/')" class="btn btn-primary" ><i class="glyphicon icon-arrow-left"></i> Previous</button>
+                        <button class="btn btn-primary" type="submit">Next <i class="glyphicon icon-arrow-right"></i></button>
+                    </div>
+                </div>
+                <br>
+                
+            </div>
+
+            <div class="col-lg-4">
+                <h3 style="margin-top: 0px;">Completion</h3>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">60%</div>
+                </div>
+                <h3 style="margin-top: 30px;">Instructions</h3>
+                <ol>
+                    <li> Please provide accurate and correctly spelled details in all fields.
+                    </li><li> Complete name of Company must be provided.
+                    </li><li> Scanned copy of the Payslip and Relieving letter attached must be of size less than 200KB (image file only).
+                    </li><li> If Relieving letter is not available, attach scanned copy of original acceptance letter of resignation (image file of size < 200KB).
+                    </li><li> Please verify all details before going to next page.</li>
+                </ol>
+            </div>
+        </div>
+        <br><br>
+        <!-- /.row -->
+        </fieldset>
+    </form>
+
+    </div>
+    <!-- /.container -->
+
+
+    <script type="text/javascript">
+        document.getElementById('payslip1').onchange = function(){
+            var filesize = document.getElementById('payslip1').files[0].size;
+            filesize = filesize / 1024;
+            if(filesize > 200){
+                document.getElementById('payslip1').setCustomValidity("Image must less than 200KB.");
+            } else {
+                document.getElementById('payslip1').setCustomValidity("");
+            }  
+        }
+
+        document.getElementById('payslip2').onchange = function(){
+            var filesize = document.getElementById('payslip2').files[0].size;
+            filesize = filesize / 1024;
+            if(filesize > 200){
+                document.getElementById('payslip2').setCustomValidity("Image must less than 200KB.");
+            } else {
+                document.getElementById('payslip2').setCustomValidity("");
+            }  
+        }
+
+        document.getElementById('payslip3').onchange = function(){
+            var filesize = document.getElementById('payslip3').files[0].size;
+            filesize = filesize / 1024;
+            if(filesize > 200){
+                document.getElementById('payslip3').setCustomValidity("Image must less than 200KB.");
+            } else {
+                document.getElementById('payslip3').setCustomValidity("");
+            }  
+        }
+
+        document.getElementById('relieving1').onchange = function(){
+            var filesize = document.getElementById('relieving1').files[0].size;
+            filesize = filesize / 1024;
+            if(filesize > 200){
+                document.getElementById('relieving1').setCustomValidity("Image must less than 200KB.");
+            } else {
+                document.getElementById('relieving1').setCustomValidity("");
+            }  
+        }
+
+        document.getElementById('relieving2').onchange = function(){
+            var filesize = document.getElementById('relieving2').files[0].size;
+            filesize = filesize / 1024;
+            if(filesize > 200){
+                document.getElementById('relieving2').setCustomValidity("Image must less than 200KB.");
+            } else {
+                document.getElementById('relieving2').setCustomValidity("");
+            }  
+        }
+
+        document.getElementById('relieving3').onchange = function(){
+            var filesize = document.getElementById('relieving3').files[0].size;
+            filesize = filesize / 1024;
+            if(filesize > 200){
+                document.getElementById('relieving3').setCustomValidity("Image must less than 200KB.");
+            } else {
+                document.getElementById('relieving3').setCustomValidity("");
+            }  
+        }
+
+        
+
+    </script>
+
+
+    {% endblock %}

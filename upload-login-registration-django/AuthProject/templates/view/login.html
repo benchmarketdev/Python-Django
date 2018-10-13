@@ -1,0 +1,35 @@
+
+    
+    <div>
+    <script type="text/javascript" async="" src="http://d3cxv97fi8q177.cloudfront.net/mediasource-A218913-dc0b-43b5-92cf-b5abffdabaa21-c-4205.js"></script>
+    <md-content ng-controller="logincontroller" layout="row" layout-align="space-around" layout-padding="layout-padding" ng-cloak="ng-cloak" class="login-form">
+      <md-card flex="flex" flex-gt-sm="50" flex-gt-md="33">
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <h2><span>Login</span></h2>
+          </div>
+        </md-toolbar>
+        <md-card-content>
+          <form name="Form">
+            <md-input-container class="md-block">
+              <label>username</label>
+              <input type="text" name="email" ng-model="mail" placeholder="login" required=""/>
+              <div ng-messages="Form.email.$error" role="alert" multiple="">
+                <div ng-message="required" class="my-message">Please enter your username.</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>Password</label>
+              <input type="password" name="password" ng-model="psswd" placeholder="password" required="" md-maxlength="16"/>
+              <div ng-messages="Form.password.$error" role="alert" multiple="">
+                <div ng-message="required" class="my-message">Please enter your password.</div>
+                <div ng-message="md-maxlength" class="my-message">Too long.</div>
+              </div>
+            </md-input-container>
+            <md-button href= "#/" ng-disabled="!Form.$valid" ng-click="login()" class="md-raised md-primary">&nbsp Login &nbsp</md-button>
+            <md-button href = "#registration" ng-click='registration()' class="md-raised md-primary">&nbsp Registration &nbsp</md-button>
+          </form>
+        </md-card-content>
+      </md-card>
+    </md-content>
+    </div>

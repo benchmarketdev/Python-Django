@@ -1,0 +1,133 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Employee Registration</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'registration/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'registration/css/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+    body {
+        padding-top: 70px;        
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+    .form-control { text-transform: uppercase; } 
+    .width80 { width: 80%; }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    {% block body-section %}
+
+    {% endblock %}    
+
+
+    <!-- jQuery Version 1.11.1 -->
+    <script src="{% static 'registration/js/jquery.js' %}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'registration/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'registration/js/bootstrap-datetimepicker.js' %}" charset="UTF-8"></script>
+
+    <script type="text/javascript">
+        $(".form-control").keyup(function () {
+            this.value = this.value.toLocaleUpperCase();
+        });
+        function previous(url){
+            if(confirm('Your data is not saved. Do you want to proceed?\nOr else click Next button to save your data.')){
+                window.location = url;
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+    $('.form_date').datetimepicker({
+        language:  'en',
+        // weekStart: 1,
+        // todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+    $('.form_date2').datetimepicker({
+        language:  'en',
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+    $('.form_date3').datetimepicker({
+        language:  'en',
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+    $('.form_date4').datetimepicker({
+        language:  'en',
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+    $('.form_date5').datetimepicker({
+        language:  'en',
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+    $('.form_date6').datetimepicker({
+        language:  'en',
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+    $('.form_date7').datetimepicker({
+        language:  'en',
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+    $('.form_date8').datetimepicker({
+        language:  'en',
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+</script>
+
+</body>
+
+</html>
+

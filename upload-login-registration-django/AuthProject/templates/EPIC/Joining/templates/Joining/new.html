@@ -1,0 +1,118 @@
+{% extends "admin_base.html" %}
+{% load staticfiles %}
+{% block mid-section %}
+
+      <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>Human Resource</h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="#">Employee</a>
+                        </li>
+                        <li>
+                            <a>Joining</a>
+                        </li>
+                        <li class="active">
+                            <strong>New Joining</strong>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Fill the details of new joinee <small></small></h5>
+                        </div>
+                        <div class="ibox-content">
+                            <form role="form" method="post" action="" enctype="multipart/form-data" class="form-horizontal">
+                                {% if estatus == 104 %}
+                                <center><p class="text-danger">Error!!! Please try again.</p></center>
+                                {% elif estatus == 102 %}
+                                <center><p class="text-danger">Email or Mobile already exit.</p></center>
+                                {% elif estatus == 100 %}
+                                <center><p class="text-success">Success. Add another new joinee.</p></center>
+                                {% endif %}
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Surname *</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="lname" required="" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Given Name *</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="fname" required="" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Email *</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" name="email" required="" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Mobile *</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" name="mobile" required="" class="form-control">
+                                    </div>
+                                </div>
+
+                                <!-- <div class="form-group">
+                                    <label class="col-sm-2 control-label">Employee ID </label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="empcode" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Location *</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="location" required="" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Department *</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="department" required="" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Designation *</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="designation" required="" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Band *</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="band" required="" class="form-control">
+                                    </div>
+                                </div> -->
+                                {% csrf_token %}
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <div class="col-sm-4 col-sm-offset-2">
+                                        <button class="btn btn-primary" type="submit">Submit Details</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+{% endblock %}

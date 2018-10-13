@@ -1,0 +1,778 @@
+{% extends "Employee/registration_base.html" %}
+{% load staticfiles %}
+
+    {% block body-section %}
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Ecom Express</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/employee/registration/myprofile/">MY PROFILE</a>
+                    </li>
+                    <li>
+                        <a href="/employee/registration/mycontact/">MY CONTACT</a>
+                    </li>
+                    <li>
+                        <a href="/employee/registration/myid/">MY ID</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">MY FAMILY</a>
+                    </li>
+                    <li>
+                        <a href="#">MY ACADEMIC</a>
+                    </li>
+                    <li>
+                        <a href="#">MY EXPERIANCE</a>
+                    </li>
+                    <li>
+                        <a href="#">ACCOUNT</a>
+                    </li>
+                    <li>
+                        <a href="#">REFERENCE</a>
+                    </li>
+                    <li>
+                        <a href="#">REFERRAL</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+    <form role="form" method="post" action="" enctype="multipart/form-data" >
+        <fieldset>
+        <div class="row">
+            <div class="col-lg-8 cs-box">
+                <h3 class="text-warning">MY FAMILY</h3>
+                
+                <div id="member">
+                
+                <hr/>
+                <h5 class="text-primary">FATHER</h5>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Name *</label>
+                            <input type="hidden" name="iD1" value="{{fmObj.0.id}}">
+                            <input id="name1" name="name1" type="text" placeholder="Name" maxlength="255" class="form-control" required="" value="{{fmObj.0.name}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Relation*</label>
+                            <select class="form-control" id="relation1" name="relation1" required="">
+                                <option value="FATHER">FATHER</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Mobile*</label>
+                            <input id="mobile1" name="mobile1" type="text" placeholder="Mobile" class="form-control" required="" value="{{fmObj.0.mobile}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input id="phone1" name="phone1" type="text" placeholder="Phone" class="form-control" value="{{fmObj.0.phone}}" >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>Full Address *</label>
+                            <input id="faddress1" name="faddress1" type="text" placeholder="Full Address" class="form-control" required="" value="{{fmObj.0.fullAddress}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Date of Birth *</label>
+                            <div class="controls input-append date form_date" data-date="" data-date-format="dd/mm/yyyy" data-link-field="dtp_input1" data-link-format="yyyy-mm-dd">
+                                <input id="dob1" name="dob1" type="text" placeholder="DD/MM/YYYY" class="form-control" pattern="\d{1,2}/\d{1,2}/\d{4}" required="" value="{{fmObj.0.dateOfBirth|date:'d/m/Y'}}" >
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                            <input type="hidden" id="dtp_input1" name="idob1" value="" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Occupation </label>
+                            <input id="occupation1" name="occupation1" type="text" placeholder="Occupation" class="form-control" value="{{fmObj.0.occupation}}">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Organization</label>
+                            <input id="organization1" name="organization1" type="text" placeholder="Organization" value="" class="form-control" value="{{fmObj.0.organisation}}" >
+                        </div>
+                    </div>                                        
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Dependent*</label>
+                            <select class="form-control" id="dependent1" name="dependent1" required="">
+                                <option value="">-Select-</option>
+                                <option value="YES" {% if fmObj.0.isDependent %}selected{% endif %}>YES</option>
+                                <option value="NO" {% if not fmObj.0.isDependent %}selected{% endif %}>NO</option>
+                            </select>
+                        </div>
+                    </div> 
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>Nomination Details </label>
+                            <br>
+                            <table width="100%">
+                                <tr>
+                                    <td width="25%">
+                                        <input id="pf1" name="pf1" onclick="nomination('pf1', '1')" type="checkbox" value="Y" {% if fmObj.0.isPFNominee %}checked{% endif %} > Provident Fund 
+                                    </td>
+                                    <td width="25%">
+                                        <input id="bf1" name="bf1" onclick="nomination('bf1', '1')" type="checkbox" value="Y" {% if fmObj.0.isBFNominee %}checked{% endif %} > Benevolent Fund 
+                                    </td>
+                                    <td width="25%">
+                                        <input id="gf1" name="gf1" onclick="nomination('gf1', '1')" type="checkbox" value="Y" {% if fmObj.0.isGFNominee %}checked{% endif %} > Gratuity Fund
+                                    </td>
+                                    <td width="25%">
+                                        <input id="esic1" name="esic1" onclick="nomination('esic1', '1')" type="checkbox" value="Y" {% if fmObj.0.isESICNominee %}checked{% endif %} > ESIC 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="tpf1">{% if fmObj.0.isPFNominee %}<input class="form-control width80" name="ppf1" placeholder="Percantage (%) " type="number" max="100" value="{{fmObj.0.pfPercentage}}" >{% endif %}</td>
+                                    <td id="tbf1">{% if fmObj.0.isBFNominee %}<input class="form-control width80" name="pbf1" placeholder="Percantage (%)" type="number" max="100" value="{{fmObj.0.bfPercentage}}" >{% endif %}</td>
+                                    <td id="tgf1">{% if fmObj.0.isGFNominee %}<input class="form-control width80" name="pgf1" placeholder="Percantage (%)" type="number" max="100" value="{{fmObj.0.gfPercentage}}" >{% endif %}</td>
+                                    <td id="tesic1">{% if fmObj.0.isESICNominee %}<input class="form-control width80" name="pesic1" placeholder="Percantage (%)" type="number" max="100" value="{{fmObj.0.esicPercentage}}" >{% endif %}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="nominee1"></div>
+
+
+                <!-- MEMBER 2 -->
+
+                <hr/>
+                <h5 class="text-primary">MOTHER</h5>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Name </label>
+                            <input type="hidden" name="iD2" value="{{fmObj.1.id}}">
+                            <input name="name2" type="text" placeholder="Name" maxlength="255" class="form-control" value="{{fmObj.1.name}}" >
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Relation</label>
+                            <select class="form-control" name="relation2">
+                                <option value="MOTHER">MOTHER</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Mobile</label>
+                            <input name="mobile2" type="text" placeholder="Mobile" class="form-control" value="{{fmObj.1.mobile}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input name="phone2" type="text" placeholder="Phone" class="form-control"  value="{{fmObj.1.phone}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>Full Address</label>
+                            <input name="faddress2" type="text" placeholder="Full Address" class="form-control" value="{{fmObj.1.fullAddress}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                     <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Date of Birth </label>
+                            <div class="controls input-append date form_date2" data-date="" data-date-format="dd/mm/yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                <input id="dob2" name="dob2" type="text" placeholder="DD/MM/YYYY" class="form-control" pattern="\d{1,2}/\d{1,2}/\d{4}" value="{{fmObj.1.dateOfBirth|date:'d/m/Y'}}" >
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                            <input type="hidden" id="dtp_input2" name="idob2" value="" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Occupation </label>
+                            <input name="occupation2" type="text" placeholder="Occupation" class="form-control" value="{{fmObj.1.occupation}}">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Organization</label>
+                            <input name="organization2" type="text" placeholder="Organization" value="" class="form-control" value="{{fmObj.1.organisation}}">
+                        </div>
+                    </div>                                        
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Dependent </label>
+                            <select class="form-control" name="dependent2" >
+                                <option value="">-Select-</option>
+                                <option value="YES" {% if fmObj.1.isDependent %}selected{% endif %}>YES</option>
+                                <option value="NO" {% if not fmObj.1.isDependent %}selected{% endif %}>NO</option>
+                            </select>
+                        </div>
+                    </div> 
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>Nomination Details </label>
+                            <br>
+                            <table width="100%">
+                                <tr>
+                                    <td width="25%">
+                                        <input id="pf2" name="pf2" onclick="nomination('pf2', '2')" type="checkbox" value="Y" {% if fmObj.1.isPFNominee %}checked{% endif %} > Provident Fund 
+                                    </td>
+                                    <td width="25%">
+                                        <input id="bf2" name="bf2" onclick="nomination('bf2', '2')" type="checkbox" value="Y" {% if fmObj.1.isBFNominee %}checked{% endif %}> Benevolent Fund 
+                                    </td>
+                                    <td width="25%">
+                                        <input id="gf2" name="gf2" onclick="nomination('gf2', '2')" type="checkbox" value="Y" {% if fmObj.1.isGFNominee %}checked{% endif %}> Gratuity Fund
+                                    </td>
+                                    <td width="25%">
+                                        <input id="esic2" name="esic2" onclick="nomination('esic2', '2')" type="checkbox" value="Y" {% if fmObj.1.isESICNominee %}checked{% endif %}> ESIC 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="tpf2">{% if fmObj.1.isPFNominee %}<input class="form-control width80" name="ppf2" placeholder="Percantage (%) " type="number" max="100" value="{{fmObj.1.pfPercentage}}" >{% endif %}</td>
+                                    <td id="tbf2">{% if fmObj.1.isBFNominee %}<input class="form-control width80" name="pbf2" placeholder="Percantage (%)" type="number" max="100" value="{{fmObj.1.bfPercentage}}" >{% endif %}</td>
+                                    <td id="tgf2">{% if fmObj.1.isGFNominee %}<input class="form-control width80" name="pgf2" placeholder="Percantage (%)" type="number" max="100" value="{{fmObj.1.gfPercentage}}" >{% endif %}</td>
+                                    <td id="tesic2">{% if fmObj.1.isESICNominee %}<input class="form-control width80" name="pesic2" placeholder="Percantage (%)" type="number" max="100" value="{{fmObj.1.esicPercentage}}" >{% endif %}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="nominee2"></div>
+
+
+                <!-- MEMBER 3 -->
+
+                <hr/>
+                <h5 class="text-primary">MEMBER 3</h5>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Name </label>
+                            <input type="hidden" name="iD3" value="{{fmObj.2.id}}">
+                            <input name="name3" type="text" placeholder="Name" maxlength="255" class="form-control" value="{{fmObj.2.name}}" >
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Relation</label>
+                            <select class="form-control" name="relation3">
+                                <option value="">-Select-</option>
+                                <option value="BROTHER" {% if fmObj.2.relation == 'BROTHER' %}selected="selected"{% endif %}>BROTHER</option>
+                                <option value="SISTER" {% if fmObj.2.relation == 'SISTER' %}selected="selected"{% endif %}>SISTER</option>
+                                <option value="WIFE" {% if fmObj.2.relation == 'WIFE' %}selected="selected"{% endif %}>WIFE</option>
+                                <option value="DAUGHTER" {% if fmObj.2.relation == 'DAUGHTER' %}selected="selected"{% endif %}>DAUGHTER</option>
+                                <option value="SON" {% if fmObj.2.relation == 'SON' %}selected="selected"{% endif %}>SON</option>
+                                <option value="OTHER" {% if fmObj.2.relation == 'OTHER' %}selected="selected"{% endif %}>OTHER</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Mobile</label>
+                            <input name="mobile3" type="text" placeholder="Mobile" class="form-control" value="{{fmObj.2.mobile}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input name="phone3" type="text" placeholder="Phone" class="form-control"  value="{{fmObj.2.phone}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>Full Address</label>
+                            <input name="faddress3" type="text" placeholder="Full Address" class="form-control" value="{{fmObj.2.fullAddress}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                     <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Date of Birth </label>
+                            <div class="controls input-append date form_date3" data-date="" data-date-format="dd/mm/yyyy" data-link-field="dtp_input3" data-link-format="yyyy-mm-dd">
+                                <input id="dob3" name="dob3" type="text" placeholder="DD/MM/YYYY" class="form-control" pattern="\d{1,2}/\d{1,2}/\d{4}" value="{{fmObj.2.dateOfBirth|date:'d/m/Y'}}">
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                            <input type="hidden" id="dtp_input3" name="idob3" value="" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Occupation </label>
+                            <input name="occupation3" type="text" placeholder="Occupation" class="form-control" value="{{fmObj.2.occupation}}">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Organization</label>
+                            <input name="organization3" type="text" placeholder="Organization" value="" class="form-control" value="{{fmObj.2.organisation}}" >
+                        </div>
+                    </div>                                        
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Dependent </label>
+                            <select class="form-control" name="dependent3" >
+                                <option value="">-Select-</option>
+                                <option value="YES" {% if fmObj.2.isDependent %}selected{% endif %}>YES</option>
+                                <option value="NO" {% if not fmObj.2.isDependent %}selected{% endif %}>NO</option>
+                            </select>
+                        </div>
+                    </div> 
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>Nomination Details </label>
+                            <br>
+                            <table width="100%">
+                                <tr>
+                                    <td width="25%">
+                                        <input id="pf3" name="pf3" onclick="nomination('pf3', '3')" type="checkbox" value="Y" {% if fmObj.2.isPFNominee %}checked{% endif %}> Provident Fund 
+                                    </td>
+                                    <td width="25%">
+                                        <input id="bf3" name="bf3" onclick="nomination('bf3', '3')" type="checkbox" value="Y" {% if fmObj.2.isBFNominee %}checked{% endif %}> Benevolent Fund 
+                                    </td>
+                                    <td width="25%">
+                                        <input id="gf3" name="gf3" onclick="nomination('gf3', '3')" type="checkbox" value="Y" {% if fmObj.2.isGFNominee %}checked{% endif %}> Gratuity Fund
+                                    </td>
+                                    <td width="25%">
+                                        <input id="esic3" name="esic3" onclick="nomination('esic3', '3')" type="checkbox" value="Y" {% if fmObj.2.isESICNominee %}checked{% endif %}> ESIC 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="tpf3">{% if fmObj.2.isPFNominee %}<input class="form-control width80" name="ppf2" placeholder="Percantage (%) " type="number" max="100" value="{{fmObj.2.pfPercentage}}" >{% endif %}</td>
+                                    <td id="tbf3">{% if fmObj.2.isBFNominee %}<input class="form-control width80" name="pbf3" placeholder="Percantage (%)" type="number" max="100" value="{{fmObj.2.bfPercentage}}" >{% endif %}</td>
+                                    <td id="tgf3">{% if fmObj.2.isGFNominee %}<input class="form-control width80" name="pgf3" placeholder="Percantage (%)" type="number" max="100" value="{{fmObj.2.gfPercentage}}" >{% endif %}</td>
+                                    <td id="tesic3">{% if fmObj.2.isESICNominee %}<input class="form-control width80" name="pesic3" placeholder="Percantage (%)" type="number" max="100" value="{{fmObj.2.esicPercentage}}" >{% endif %}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="nominee3"></div>
+
+
+                <!-- MEMBER 4 -->
+
+                <hr/>
+                <h5 class="text-primary">MEMBER 4</h5>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Name </label>
+                            <input type="hidden" name="iD4" value="{{fmObj.3.id}}">
+                            <input name="name4" type="text" placeholder="Name" maxlength="255" class="form-control" value="{{fmObj.3.name}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Relation</label>
+                            <select class="form-control" name="relation4">
+                                <option value="">-Select-</option>
+                                <option value="BROTHER" {% if fmObj.3.relation == 'BROTHER' %}selected="selected"{% endif %}>BROTHER</option>
+                                <option value="SISTER" {% if fmObj.3.relation == 'SISTER' %}selected="selected"{% endif %}>SISTER</option>
+                                <option value="WIFE" {% if fmObj.3.relation == 'WIFE' %}selected="selected"{% endif %}>WIFE</option>
+                                <option value="DAUGHTER" {% if fmObj.3.relation == 'DAUGHTER' %}selected="selected"{% endif %}>DAUGHTER</option>
+                                <option value="SON" {% if fmObj.3.relation == 'SON' %}selected="selected"{% endif %}>SON</option>
+                                <option value="OTHER" {% if fmObj.3.relation == 'OTHER' %}selected="selected"{% endif %}>OTHER</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Mobile</label>
+                            <input name="mobile4" type="text" placeholder="Mobile" class="form-control" value="{{fmObj.2.mobile}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input name="phone4" type="text" placeholder="Phone" class="form-control"  value="{{fmObj.2.phone}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>Full Address</label>
+                            <input name="faddress4" type="text" placeholder="Full Address" class="form-control" value="{{fmObj.2.fullAddress}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                     <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Date of Birth </label>
+                            <div class="controls input-append date form_date4" data-date="" data-date-format="dd/mm/yyyy" data-link-field="dtp_input4" data-link-format="yyyy-mm-dd">
+                                <input id="dob4" name="dob4" type="text" placeholder="DD/MM/YYYY" class="form-control" pattern="\d{1,2}/\d{1,2}/\d{4}" value="{{fmObj.3.dateOfBirth|date:'d/m/Y'}}">
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                            <input type="hidden" id="dtp_input4" name="idob4" value="" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Occupation </label>
+                            <input name="occupation4" type="text" placeholder="Occupation" class="form-control" value="{{fmObj.2.occupation}}">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Organization</label>
+                            <input name="organization4" type="text" placeholder="Organization" value="" class="form-control" value="{{fmObj.2.organisation}}" >
+                        </div>
+                    </div>                                        
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Dependent </label>
+                            <select class="form-control" name="dependent4" >
+                                <option value="">-Select-</option>
+                                <option value="YES" {% if fmObj.3.isDependent %}selected{% endif %}>YES</option>
+                                <option value="NO" {% if not fmObj.3.isDependent %}selected{% endif %}>NO</option>
+                            </select>
+                        </div>
+                    </div> 
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>Nomination Details </label>
+                            <br>
+                            <table width="100%">
+                                <tr>
+                                    <td width="25%">
+                                        <input id="pf4" name="pf4" onclick="nomination('pf4', '4')" type="checkbox" value="Y" {% if fmObj.3.isPFNominee %}checked{% endif %}> Provident Fund 
+                                    </td>
+                                    <td width="25%">
+                                        <input id="bf4" name="bf4" onclick="nomination('bf4', '4')" type="checkbox" value="Y" {% if fmObj.3.isBFNominee %}checked{% endif %}> Benevolent Fund 
+                                    </td>
+                                    <td width="25%">
+                                        <input id="gf4" name="gf4" onclick="nomination('gf4', '4')" type="checkbox" value="Y" {% if fmObj.3.isGFNominee %}checked{% endif %}> Gratuity Fund
+                                    </td>
+                                    <td width="25%">
+                                        <input id="esic4" name="esic4" onclick="nomination('esic4', '4')" type="checkbox" value="Y" {% if fmObj.3.isESICNominee %}checked{% endif %}> ESIC 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="tpf4">{% if fmObj.3.isPFNominee %}<input class="form-control width80" name="ppf4" placeholder="Percantage (%) " type="number" max="100" value="{{fmObj.3.pfPercentage}}" >{% endif %}</td>
+                                    <td id="tbf4">{% if fmObj.3.isBFNominee %}<input class="form-control width80" name="pbf4" placeholder="Percantage (%)" type="number" max="100" value="{{fmObj.3.bfPercentage}}" >{% endif %}</td>
+                                    <td id="tgf4">{% if fmObj.3.isGFNominee %}<input class="form-control width80" name="pgf4" placeholder="Percantage (%)" type="number" max="100" value="{{fmObj.3.gfPercentage}}" >{% endif %}</td>
+                                    <td id="tesic4">{% if fmObj.3.isESICNominee %}<input class="form-control width80" name="pesic4" placeholder="Percantage (%)" type="number" max="100" value="{{fmObj.3.esicPercentage}}" >{% endif %}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="nominee4"></div>
+
+
+                <!-- MEMBER 5 -->
+
+                <hr/>
+                <h5 class="text-primary">MEMBER 5</h5>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Name </label>
+                            <input type="hidden" name="iD5" value="{{fmObj.4.id}}">
+                            <input name="name5" type="text" placeholder="Name" maxlength="255" class="form-control" value="{{fmObj.4.name}}" >
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Relation</label>
+                            <select class="form-control" name="relation5">
+                                <option value="">-Select-</option>
+                                <option value="BROTHER" {% if fmObj.4.relation == 'BROTHER' %}selected="selected"{% endif %}>BROTHER</option>
+                                <option value="SISTER" {% if fmObj.4.relation == 'SISTER' %}selected="selected"{% endif %}>SISTER</option>
+                                <option value="WIFE" {% if fmObj.4.relation == 'WIFE' %}selected="selected"{% endif %}>WIFE</option>
+                                <option value="DAUGHTER" {% if fmObj.4.relation == 'DAUGHTER' %}selected="selected"{% endif %}>DAUGHTER</option>
+                                <option value="SON" {% if fmObj.4.relation == 'SON' %}selected="selected"{% endif %}>SON</option>
+                                <option value="OTHER" {% if fmObj.4.relation == 'OTHER' %}selected="selected"{% endif %}>OTHER</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Mobile</label>
+                            <input name="mobile5" type="text" placeholder="Mobile" class="form-control" value="{{fmObj.4.mobile}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input name="phone5" type="text" placeholder="Phone" class="form-control"  value="{{fmObj.4.phone}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>Full Address</label>
+                            <input name="faddress5" type="text" placeholder="Full Address" class="form-control" value="{{fmObj.4.fullAddress}}" >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                     <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Date of Birth </label>
+                            <div class="controls input-append date form_date5" data-date="" data-date-format="dd/mm/yyyy" data-link-field="dtp_input5" data-link-format="yyyy-mm-dd">
+                                <input id="dob5" name="dob5" type="text" placeholder="DD/MM/YYYY" class="form-control" pattern="\d{1,2}/\d{1,2}/\d{4}" value="{{fmObj.4.dateOfBirth|date:'d/m/Y'}}" >
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                            <input type="hidden" id="dtp_input5" name="idob5" value="" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Occupation </label>
+                            <input name="occupation5" type="text" placeholder="Occupation" class="form-control" value="{{fmObj.4.occupation}}">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Organization</label>
+                            <input name="organization5" type="text" placeholder="Organization" value="" class="form-control" value="{{fmObj.4.organisation}}">
+                        </div>
+                    </div>                                        
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Dependent </label>
+                            <select class="form-control" name="dependent5" >
+                                <option value="">-Select-</option>
+                                <option value="YES" {% if fmObj.4.isDependent %}selected{% endif %}>YES</option>
+                                <option value="NO" {% if not fmObj.4.isDependent %}selected{% endif %}>NO</option>
+                            </select>
+                        </div>
+                    </div> 
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>Nomination Details </label>
+                            <br>
+                            <table width="100%">
+                                <tr>
+                                    <td width="25%">
+                                        <input id="pf5" name="pf5" onclick="nomination('pf5', '5')" type="checkbox" value="Y" {% if fmObj.4.isPFNominee %}checked{% endif %}> Provident Fund 
+                                    </td>
+                                    <td width="25%">
+                                        <input id="bf5" name="bf5" onclick="nomination('bf5', '5')" type="checkbox" value="Y" {% if fmObj.4.isBFNominee %}checked{% endif %}> Benevolent Fund 
+                                    </td>
+                                    <td width="25%">
+                                        <input id="gf5" name="gf5" onclick="nomination('gf5', '5')" type="checkbox" value="Y" {% if fmObj.4.isGFNominee %}checked{% endif %}> Gratuity Fund
+                                    </td>
+                                    <td width="25%">
+                                        <input id="esic5" name="esic5" onclick="nomination('esic5', '5')" type="checkbox" value="Y" {% if fmObj.4.isESICNominee %}checked{% endif %}> ESIC 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="tpf3">{% if fmObj.2.isPFNominee %}<input class="form-control width80" name="ppf2" placeholder="Percantage (%) " type="number" max="100" value="{{fmObj.2.pfPercentage}}" >{% endif %}</td>
+                                    <td id="tbf3">{% if fmObj.2.isBFNominee %}<input class="form-control width80" name="pbf3" placeholder="Percantage (%)" type="number" max="100" value="{{fmObj.2.bfPercentage}}" >{% endif %}</td>
+                                    <td id="tgf3">{% if fmObj.2.isGFNominee %}<input class="form-control width80" name="pgf3" placeholder="Percantage (%)" type="number" max="100" value="{{fmObj.2.gfPercentage}}" >{% endif %}</td>
+                                    <td id="tesic3">{% if fmObj.2.isESICNominee %}<input class="form-control width80" name="pesic3" placeholder="Percantage (%)" type="number" max="100" value="{{fmObj.2.esicPercentage}}" >{% endif %}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="nominee5"></div>
+
+
+                </div> <!-- append data -->
+
+
+                <!-- <div class="row">
+                    <div class="col-lg-12">
+                        <button onclick="addmember()" class="btn btn-sm btn-default" type="button" >+ Add New Member </button>
+                    </div>
+                </div> -->
+
+
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        {% csrf_token %}
+                        <button type="button" onclick="previous('/employee/registration/myid/')" class="btn btn-primary" ><i class="glyphicon icon-arrow-left"></i> Previous</button>
+                        <input type="hidden" id="total" name="total" value="1">
+                        <button class="btn btn-primary" type="submit">Next <i class="glyphicon icon-arrow-right"></i></button>
+                    </div>
+                </div>
+                <br>
+                
+            </div>
+
+            <div class="col-lg-4">
+                <h3 style="margin-top: 0px;">Completion</h3>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">40%</div>
+                </div>
+                <h3 style="margin-top: 30px;">Instructions</h3>
+                <ol>
+                    <li> Please provide accurate and correctly spelled details in all fields.
+                    </li><li> Name fields must be spelled correctly and do not use prefix as Smt. , Mr. , Dr. Etc.
+                    </li><li> DOB must be same as mentioned in your given documents. Select it from the calender popped after clicking the field or type manually in format of dd/mm/yyyy.
+                    </li><li> Please check the boxes under nomination details in case to make your member nominee for the respective fund.
+                    </li><li> The holder can override (delete or change) an earlier nomination by executing a fresh
+                    Nomination Form . The earlier nomination will automatically stand cancelled.
+                    </li><li> The nominee will be entitled to all the rights in the shares of the Company only in the event of the death of the holder in the account. The nominee will be required to approach the Company for transmitting the securities in his / her name and will be required to produce the death certificate of the holder, the share certificates & proof of identity as required by the Board of Directors of the Company.
+                    </li><li> Please mention the amount of share of your fund to the nominee.</li>
+                </ol>
+            </div>
+        </div>
+        <br><br>
+        <!-- /.row -->
+        </fieldset>
+    </form>
+
+    </div>
+    <!-- /.container -->
+
+
+     <script type="text/javascript">
+        // function addmember(){
+        //     var i = document.getElementById("total").value;            
+        //     i = i*1+1;
+        //     alert(i);
+        //     if(i<=10){
+        //         document.getElementById("total").value = i;
+        //         document.getElementById('member').innerHTML += '<hr/><h5 class="text-primary">MEMBER 1</h5><div class="row"><div class="col-lg-6"><div class="form-group"> <label>Name *</label> <input id="name1" name="name1" type="text" placeholder="Name" maxlength="255" class="form-control" required=""></div></div><div class="col-lg-2"><div class="form-group"> <label>Relation*</label> <select class="form-control" id="relation1" name="relation1" required=""><option value="">-Select-</option><option value="FATHER">FATHER</option><option value="MOTHER">MOTHER</option><option value="BROTHER">BROTHER</option><option value="SISTER">SISTER</option><option value="WIFE">WIFE</option><option value="DAUGHTER">DAUGHTER</option><option value="SON">SON</option><option value="OTHER">OTHER</option> </select></div></div><div class="col-lg-2"><div class="form-group"> <label>Mobile*</label> <input id="mobile1" name="mobile1" type="text" placeholder="Mobile" class="form-control" required=""></div></div><div class="col-lg-2"><div class="form-group"> <label>Phone</label> <input id="phone1" name="phone1" type="text" placeholder="Phone" class="form-control" ></div></div></div><div class="row"><div class="col-lg-12"><div class="form-group"> <label>Full Address *</label> <input id="faddress1" name="faddress1" type="text" placeholder="Full Address" class="form-control" required=""></div></div></div><div class="row"><div class="col-lg-3"><div class="form-group"> <label>Date of Birth *</label><div class="controls input-append date form_date" data-date="" data-date-format="dd/mm/yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd"> <input id="dob1" name="dob1" type="text" placeholder="DD/MM/YYYY" class="form-control" pattern="d{1,2}/d{1,2}/d{4}" required="" > <span class="add-on"><i class="icon-th"></i></span></div> <input type="hidden" id="dtp_input2" name="dob" value="" /></div></div><div class="col-lg-3"><div class="form-group"> <label>Occupation </label> <input id="occupation1" name="occupation1" type="text" placeholder="Occupation" class="form-control"></div></div><div class="col-lg-3"><div class="form-group"> <label>Organization</label> <input id="organization1" name="organization1" type="text" placeholder="Organization" value="" class="form-control" ></div></div><div class="col-lg-3"><div class="form-group"> <label>Dependent*</label> <select class="form-control" id="dependent1" name="dependent1" required=""><option value="">-Select-</option><option value="YES">YES</option><option value="NO">NO</option> </select></div></div></div>'; 
+        //     } else {
+        //         alert('You reached maximum limit.');
+        //     }
+
+        // }
+
+
+        function nomination(id, num){
+            var checkbox = document.getElementById(id);
+            if(checkbox.checked){
+                document.getElementById('t'+id).innerHTML = '<input class="form-control width80" name="p'+id+'" placeholder="Percantage (%)" type="number" max="100" >';
+            } else {
+                document.getElementById('t'+id).innerHTML = '';
+            }
+            // nominee(num);
+        }
+
+        function nominee(num){
+            var pf = document.getElementById('pf'+num);
+            var bf = document.getElementById('bf'+num);
+            var gf = document.getElementById('gf'+num);
+            var esic = document.getElementById('esic'+num);
+            if(pf.checked || bf.checked || gf.checked || esic.checked){
+                document.getElementById('nominee'+num).innerHTML = '<div class="row"><div class="col-lg-3"><div class="form-group"> <label>Bank Name * </label> <input name="bank'+num+'" type="text" placeholder="Bank Name" class="form-control"  required=""></div></div><div class="col-lg-3"><div class="form-group"> <label>Bank Account Number * </label> <input name="account'+num+'" type="text" placeholder="Bank Account Number" class="form-control"  required=""></div></div><div class="col-lg-3"><div class="form-group"> <label>Branch Name * </label> <input name="branch'+num+'" type="text" placeholder="Branch Name" class="form-control"></div></div><div class="col-lg-3"><div class="form-group"> <label>IFSC Code * </label> <input name="ifsc'+num+'" type="text" placeholder="IFSC Code" class="form-control"  required=""></div></div></div><div class="row"><div class="col-lg-4"><div class="form-group"> <label>Passport Size Photo (Max. 200KB) *</label> <input id="photo1" name="photo'+num+'" type="file" class="form-control" style="padding: 0px;" accept="image/*" required=""></div></div><div class="col-lg-4"><div class="form-group"> <label>Govt. ID Proof (Max. 200KB) *</label> <input id="idproof'+num+'" name="idproof1" type="file" class="form-control" style="padding: 0px;" accept="image/*" required=""></div></div></div>';
+
+                document.getElementById('photo'+num).onchange = function(){
+                    var filesize = document.getElementById('photo'+num).files[0].size;
+                    filesize = filesize / 1024;
+                    if(filesize > 200){
+                        document.getElementById('photo'+num).setCustomValidity("Photo must less than 200KB.");
+                    } else {
+                        document.getElementById('photo'+num).setCustomValidity("");
+                    }  
+                }
+
+                document.getElementById('idproof'+num).onchange = function(){
+                    var filesize = document.getElementById('idproof'+num).files[0].size;
+                    filesize = filesize / 1024;
+                    if(filesize > 200){
+                        document.getElementById('idproof'+num).setCustomValidity("Photo must less than 200KB.");
+                    } else {
+                        document.getElementById('idproof'+num).setCustomValidity("");
+                    }  
+                }
+
+
+            } else {
+                 document.getElementById('nominee'+num).innerHTML = '';
+            }
+        }
+       
+
+    </script>
+
+    {% endblock %}

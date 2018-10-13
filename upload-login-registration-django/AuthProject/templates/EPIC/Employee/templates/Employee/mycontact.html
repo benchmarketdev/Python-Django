@@ -1,0 +1,272 @@
+{% extends "Employee/registration_base.html" %}
+{% load staticfiles %}
+
+    {% block body-section %}
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Ecom Express</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/employee/registration/myprofile/">MY PROFILE</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">MY CONTACT</a>
+                    </li>
+                    <li>
+                        <a href="#">MY ID</a>
+                    </li>
+                    <li>
+                        <a href="#">MY FAMILY</a>
+                    </li>
+                    <li>
+                        <a href="#">MY ACADEMIC</a>
+                    </li>
+                    <li>
+                        <a href="#">MY EXPERIANCE</a>
+                    </li>
+                    <li>
+                        <a href="#">ACCOUNT</a>
+                    </li>
+                    <li>
+                        <a href="#">REFERENCE</a>
+                    </li>
+                    <li>
+                        <a href="#">REFERRAL</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+    <form role="form" method="post" action="" enctype="multipart/form-data" >
+        <fieldset>
+        <div class="row">
+            <div class="col-lg-8 cs-box">
+                <h3 class="text-warning">MY CONTACT</h3>
+                
+                <hr/>
+                <h5 class="text-primary">PRESENT ADDRESS</h5>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Address Line 1 *</label>
+                            <input id="address11" name="praddress1" type="text" placeholder="Address Line 1" maxlength="255" value="{{prObj.address1}}" class="form-control" required="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Address Line 2</label>
+                            <input id="address21" name="praddress2" type="text" placeholder="Address Line 2" value="{{prObj.address2}}" class="form-control" >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>City *</label>
+                            <input id="city1" name="prcity" type="text" placeholder="City" class="form-control" value="{{prObj.city}}" required="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>State *</label>
+                            <input id="state1" name="prstate" type="text" placeholder="State" class="form-control" value="{{prObj.state}}" required="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Country *</label>
+                            <input id="country1" name="prcountry" type="text" placeholder="Country" value="{{prObj.country}}" class="form-control" required="">
+                        </div>
+                    </div>                                        
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>PIN *</label>
+                            <input id="pin1" name="prpin" type="text" placeholder="PIN"  class="form-control" value="{{prObj.pin}}" required="">
+                        </div>
+                    </div> 
+                </div>
+
+                <hr/>
+                <h5 class="text-primary">PERMANENT ADDRESS</h5>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Address Line 1 *</label>
+                            <input id="address12" name="pmaddress1" type="text" placeholder="Address Line 1" maxlength="255" value="{{pmObj.address1}}" class="form-control" required="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Address Line 2</label>
+                            <input id="address22" name="pmaddress2" type="text" placeholder="Address Line 2" value="{{pmObj.address2}}" class="form-control" >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>City *</label>
+                            <input id="city2" name="pmcity" type="text" placeholder="City" class="form-control" value="{{pmObj.city}}" required="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>State *</label>
+                            <input id="state2" name="pmstate" type="text" placeholder="State" class="form-control" value="{{pmObj.state}}" required="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Country *</label>
+                            <input id="country2" name="pmcountry" type="text" placeholder="Country" value="{{pmObj.country}}" class="form-control" required="">
+                        </div>
+                    </div>                                        
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>PIN *</label>
+                            <input id="pin2" name="pmpin" type="text" placeholder="PIN"  class="form-control" value="{{pmObj.pin}}" required="">
+                        </div>
+                    </div> 
+                </div>
+
+
+                <hr/>
+                <h5 class="text-primary">EMERGENCY CONTACT</h5>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Person Name *</label>
+                            <input id="name3" name="name" type="text" placeholder="Person Name" class="form-control" value="{{emObj.name}}" required="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Relation *</label>
+                            <input id="relation3" name="relation" type="text" placeholder="Relation" class="form-control" value="{{emObj.relation}}" required="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Mobile *</label>
+                            <input id="mobile3" name="mobile" type="text" placeholder="Mobile" class="form-control" value="{{emObj.mobile}}" required="">
+                        </div>
+                    </div>                                        
+
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label>Phone </label>
+                            <input id="phone3" name="phone" type="text" placeholder="Phone" class="form-control" value="{{emObj.phone}}" >
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Address Line 1 *</label>
+                            <input id="address13" name="address1" type="text" placeholder="Address Line 1" maxlength="255" class="form-control" value="{{emObj.address1}}" required="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Address Line 2</label>
+                            <input id="address23" name="address2" type="text" placeholder="Address Line 2" class="form-control" value="{{emObj.address2}}" >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>City *</label>
+                            <input id="city3" name="city" type="text" placeholder="City" class="form-control" value="{{emObj.city}}" required="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>State *</label>
+                            <input id="state3" name="state" type="text" placeholder="State" class="form-control" value="{{emObj.state}}" required="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Country *</label>
+                            <input id="country3" name="country" type="text" placeholder="Country" value="{{emObj.country}}" class="form-control" required="">
+                        </div>
+                    </div>                                        
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>PIN *</label>
+                            <input id="pin3" name="pin" type="text" placeholder="PIN"  class="form-control" value="{{emObj.pin}}" required="">
+                        </div>
+                    </div> 
+                </div>
+
+
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        {% csrf_token %}
+                        <input type="hidden" name="iD" value="{{emObj.id}}">
+                        <button type="button" onclick="previous('/employee/registration/myprofile/')" class="btn btn-primary" ><i class="glyphicon icon-arrow-left"></i> Previous</button>
+                        <button class="btn btn-primary" type="submit">Next <i class="glyphicon icon-arrow-right"></i></button>
+                    </div>
+                </div>
+                <br>
+                
+            </div>
+
+            <div class="col-lg-4">
+                <h3 style="margin-top: 0px;">Completion</h3>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%">20%</div>
+                </div>
+                <h3 style="margin-top: 30px;">Instructions</h3>
+                <ol>
+                    <li> Please provide accurate and correctly spelled details in all fields.
+                    </li><li> Name fields must be spelled correctly and do not use prefix as Smt. , Mr. , Dr. etc.
+                    </li><li> Address field must contain full postal address.
+                    </li><li> Fields marked with '*' are mandatory fields and must not be left empty.
+                    </li><li> Please verify all details before going to next page.</li>
+                </ol>
+            </div>
+        </div>
+        <br><br>
+        <!-- /.row -->
+        </fieldset>
+    </form>
+
+    </div>
+    <!-- /.container -->
+
+    {% endblock %}

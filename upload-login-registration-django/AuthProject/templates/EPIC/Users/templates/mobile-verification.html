@@ -1,0 +1,40 @@
+{% extends "signin.html" %}
+{% load staticfiles %}
+
+      {% block signin-body %}
+            <div class="col-md-6">
+                <div class="ibox-content">    
+                    <h2 class="font-bold">Verify Mobile</h2>                
+                    {% if estatus == 101 %}
+                    <p class="login-box-msg text-danger">OTP doesn't match. Please re-enter OTP.</p>
+                    {% elif estatus == 102 %}
+                    <p class="login-box-msg text-danger">Mobile is not registerd yet. Please check your mobile number.</p>
+                    {% elif estatus == 103 %}
+                    <p class="login-box-msg text-success"><a href="/">Mobile verified successfully. Click to login.</a></p>
+                    {% else %}
+                    <p class="login-box-msg">Enter OTP sent to your mobile number. </p>
+                    {% endif %}
+
+                    <form class="m-t" role="form" action="" method="POST">
+
+                        <div class="form-group has-feedback">
+                          <input type="text" class="form-control" value="{{request.GET.mobile}}" readonly="" />
+                          <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+                        </div>
+                        
+                        <div class="form-group has-feedback">                          
+                          <input type="text" class="form-control" placeholder="Enter OTP" name="otp" value="" required />
+                          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </div>
+
+                        {% csrf_token %} 
+                        <input type="hidden" name="mobile" value="{{request.GET.mobile}}" required />
+                        <button type="submit" class="btn btn-primary block full-width m-b">Verify mobile</button>
+
+                    </form>
+                </div>
+            </div>
+    {% endblock %}
+
+      
+

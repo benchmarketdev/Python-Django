@@ -1,0 +1,29 @@
+{% load staticfiles %}
+
+<html lang="en" >
+<head ng-app="app">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title> | Login</title>
+  <style>
+    
+  </style>
+  <link rel="stylesheet" href="{% static 'css/angular-material.min.css' %}">
+</head>
+<body  ng-cloak>
+  
+  <div>
+    <ng-view></ng-view>
+    <!-- <script src="../static/angular/angular.js"></script> -->
+    <script src="{% static 'angular/angular.min.js' %}"></script>
+    <script src="{% static 'angular/angular-route.js' %}"></script>
+    <script src="{% static 'angular/angular-animate.min.js' %}"></script>
+    <script src="{% static 'angular/angular-aria.min.js' %}"></script>
+    <script src="{% static 'angular/angular-messages.min.js' %}"></script>
+    <script src="{% static 'angular/angular-material.min.js' %}"></script>
+    <script src="{% static 'app.js' %}"></script>
+    <script src="{% static 'js/controllers/login.js' %}"></script>
+    <script src="{% static 'js/controllers/registration.js' %}"></script>
+  </div>
+</body>
+</html>

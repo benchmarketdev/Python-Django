@@ -1,0 +1,32 @@
+{% extends "signin.html" %}
+{% load staticfiles %}
+
+      {% block signin-body %}
+            <div class="col-md-6">
+                <div class="ibox-content">    
+                    <h2 class="font-bold">Verify Email</h2>                
+                    {% if estatus == 101 %}
+                    <p class="login-box-msg text-danger">Verification code doesn't match. Please re-enter verification code.</p>
+                    {% elif estatus == 102 %}
+                    <p class="login-box-msg text-danger">Email is not registerd yet. Please check your email address.</p>
+                    {% else %}
+                    <p class="login-box-msg">Enter varification code sent to your email address. </p>
+                    {% endif %}
+
+                    <form class="m-t" role="form" action="" method="GET">
+                        
+                        <div class="form-group has-feedback">
+                          <input type="hidden" name="email" value="{{request.GET.email}}" required />
+                          <input type="text" class="form-control" placeholder="Enter Verification Code" name="verification_code" value="{{request.GET.verification_code}}" required />
+                          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary block full-width m-b">Verify email</button>
+
+                    </form>
+                </div>
+            </div>
+    {% endblock %}
+
+      
+

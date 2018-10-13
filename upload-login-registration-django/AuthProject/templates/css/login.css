@@ -1,0 +1,10 @@
+@import url('http://ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css');
+.login-form {
+  md-card {
+    padding: 0!important;
+
+    md-card-title {
+      background-color: blue;
+    }
+  }
+}

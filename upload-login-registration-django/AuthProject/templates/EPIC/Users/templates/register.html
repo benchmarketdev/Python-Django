@@ -1,0 +1,82 @@
+{% extends "signin.html" %}
+{% load staticfiles %}
+
+
+      {% block signin-body %}
+            <div class="col-md-6">
+                <div class="ibox-content">
+                  {% if estatus == 101 %}
+                  <p class="login-box-msg text-danger text-center">Password doesn't match. Please try again.</p>
+                  {% elif estatus == 102 %}
+                  <p class="login-box-msg text-danger text-center">Password atleast 8 Characters and contains Alphanumeric with Symbols.</p>
+                  {% elif estatus == 103 %}
+                  <p class="login-box-msg text-danger text-center">Current Password is wrong.</p>
+                  {% elif estatus == 104 %}
+                  <p class="login-box-msg text-danger text-center">Email already registerd. Please try with different email.</p>
+                  {% elif estatus == 105 %}
+                  <p class="login-box-msg text-danger text-center">Please fill all valid details.</p>
+                  {% else %}
+                  <p class="login-box-msg text-center">Create an account with Ecom Express.</p>
+                  {% endif %}
+
+                    <form class="m-t" role="form" action="" method="POST">
+                       
+                        <div class="form-group has-feedback">
+                          <input type="text" class="form-control" name="fname" placeholder="First name" value="{{request.POST.fname}}" required="" />
+                          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                          <input type="text" class="form-control" name="lname" placeholder="Last name" value="{{request.POST.lname}}" required="" />
+                          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                          <input type="text" class="form-control" name="mobile" placeholder="Mobile" value="{{request.POST.mobile}}" required="" />
+                          <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+                        </div>
+                        
+                        <div class="form-group has-feedback">
+                          <input type="email" class="form-control" name="email" placeholder="Email" value="{{request.POST.email}}" required="" />
+                          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                          <input type="password" class="form-control" name="password" placeholder="Password" value="" required="" />
+                          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                          <input type="password" class="form-control" name="repassword" placeholder="Re-Password" value="" required="" />
+                          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox i-checks">
+                              <label style="padding-left: 0px;"><input type="checkbox" name="agree" required=""><i></i>&nbsp;&nbsp; Agree the terms and policy </label>
+                            </div>
+                        </div>
+
+
+                        {% csrf_token %} 
+                        <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
+
+                        <a href="/users/forgot-password/">
+                            <small>Forgot password?</small>
+                        </a>
+
+                        <p class="text-muted text-center">
+                            <small>Already have an account?</small>
+                        </p>
+                        <a class="btn btn-sm btn-white btn-block" href="/">Login</a>
+                    </form>
+                </div>
+            </div>
+
+
+
+      {% endblock %}
+
+    
+   
+

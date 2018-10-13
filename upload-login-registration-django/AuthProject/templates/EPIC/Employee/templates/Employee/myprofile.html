@@ -1,0 +1,286 @@
+{% extends "Employee/registration_base.html" %}
+{% load staticfiles %}
+
+    {% block body-section %}
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Ecom Express</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#">MY PROFILE</a>
+                    </li>
+                    <li>
+                        <a href="#">MY CONTACT</a>
+                    </li>
+                    <li>
+                        <a href="#">MY ID</a>
+                    </li>
+                    <li>
+                        <a href="#">MY FAMILY</a>
+                    </li>
+                    <li>
+                        <a href="#">MY ACADEMIC</a>
+                    </li>
+                    <li>
+                        <a href="#">MY EXPERIANCE</a>
+                    </li>
+                    <li>
+                        <a href="#">ACCOUNT</a>
+                    </li>
+                    <li>
+                        <a href="#">REFERENCE</a>
+                    </li>
+                    <li>
+                        <a href="#">REFERRAL</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+    <form role="form" method="post" action="" enctype="multipart/form-data" >
+        <fieldset>
+        <div class="row">
+            <div class="col-lg-8 cs-box">
+                <h3 class="text-warning">MY PROFILE</h3>
+                <hr/>
+                <h5 class="text-primary">GENERAL INFORMATIONS</h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Surname *</label>
+                            <input id="surname" name="surname" type="text" placeholder="Surname" class="form-control" value="{{empObj.surName}}" required="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Given Name *</label>
+                            <input id="givenname" name="givenname" type="text" placeholder="Given Name" class="form-control" value="{{empObj.givenName}}" required="">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="form-group">
+                            <label>Mother's Name *</label>
+                            <input id="mothername" name="mothername" type="text" placeholder="Mother's Name" class="form-control" value="{{empObj.motherName}}" required="">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="form-group">
+                            <label>Father's Name *</label>
+                            <input id="fathername" name="fathername" type="text" placeholder="Father's Name" class="form-control" value="{{empObj.fatherName}}" required="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Gender *</label>
+                            <select class="form-control" id="gender" name="gender" required="">
+                                <option value="">-Select Gender-</option>
+                                <option value="M" {% if empObj.gender == 'M' %}selected="selected"{% endif %}>MALE</option>
+                                <option value="F" {% if empObj.gender == 'F' %}selected="selected"{% endif %}>FEMALE</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Date of Birth *</label>
+                            <div class="controls input-append date form_date" data-date="" data-date-format="dd/mm/yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                <input id="dob" name="dob" type="text" placeholder="DD/MM/YYYY" class="form-control" pattern="\d{1,2}/\d{1,2}/\d{4}" value="{{ empObj.dateOfBirth|date:'d/m/Y' }}" required="" autocomplete="off" >
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                            <input type="hidden" id="dtp_input2" name="dob2" value="{{ empObj.dateOfBirth|date:'Y-m-d' }}" />
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Blood Group *</label>
+                            <input id="bgroup" name="bgroup" type="text" placeholder="Blood Group" class="form-control" value="{{empObj.bloodGroup}}" required="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Mother Tongue *</label>
+                            <input id="mtongue" name="mtongue" type="text" placeholder="Mother tongue" class="form-control" value="{{empObj.motherTongue}}" required="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Birth Place *</label>
+                            <input id="birthpalce" name="birthpalce" type="text" placeholder="Birth place" class="form-control" value="{{empObj.birthPlace}}" required="">
+                        </div>
+                    </div>                                        
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Other Languages</label>
+                            <input id="olanguages" name="olanguages" type="text" placeholder="Other Languages" value="{{empObj.otherLanguages}}" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>State Domicile *</label>
+                            <input id="sdomicile" name="sdomicile" type="text" placeholder="State Domicile" class="form-control" value="{{empObj.stateDomicile}}" required="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Religion *</label>
+                            <input id="religion" name="religion" type="text" placeholder="Religion" class="form-control" value="{{empObj.religion}}" required="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label>Marital Status *</label>
+                            <select class="form-control" id="mstatus" name="mstatus" required="">
+                                <option value="">-Select Status-</option>
+                                <option value="MARRIED" {% if empObj.maritalStatus == 'MARRIED' %}selected="selected"{% endif %}>MARRIED</option>
+                                <option value="UNMARRIED" {% if empObj.maritalStatus == 'UNMARRIED' %}selected="selected"{% endif %}>UNMARRIED</option>
+                                <option value="DIVORCED" {% if empObj.maritalStatus == 'DIVORCED' %}selected="selected"{% endif %}>DIVORCED</option>
+                                <option value="WIDOWED" {% if empObj.maritalStatus == 'WIDOWED' %}selected="selected"{% endif %}>WIDOWED</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label>Personal Mobile *</label>
+                            <input id="pmobile" name="pmobile" type="text" placeholder="Personal Mobile" class="form-control" value="{{empObj.personalMobile}}" required="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Personal Email *</label>
+                            <input id="pemail" name="pemail" type="email" placeholder="Personal Email" class="form-control" value="{{empObj.personalEmail}}" required="">
+                        </div>
+                    </div>   
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            {% if empObj.userPhoto %}
+                            <label>Passport Size Photo (Max. 200KB) &#10004;</label>
+                            <input id="photo" name="photo" type="file" class="form-control" style="padding: 0px;" accept="image/*" >
+                            <a href="/{{empObj.userPhoto}}" target="_blank"> Click to view </a>
+                            {% else %}
+                            <label>Passport Size Photo (Max. 200KB) *</label>
+                            <input id="photo" name="photo" type="file" class="form-control" style="padding: 0px;" accept="image/*" required="">
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            {% if empObj.signatureCopy %}
+                            <label>Signature Image (Max. 200KB) &#10004;</label>
+                            <input id="signature" name="signature" type="file" class="form-control" style="padding: 0px;" accept="image/*" >
+                            <a href="/{{empObj.signatureCopy}}" target="_blank"> Click to view </a>
+                            {% else %}
+                            <label>Signature Image (Max. 200KB)*</label>
+                            <input id="signature" name="signature" type="file" class="form-control" style="padding: 0px;" accept="image/*" required="">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div> 
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        {% csrf_token %}
+                        <input type="hidden" name="iD" value="{{empObj.id}}">
+                        <button class="btn btn-primary" type="submit">Next <i class="glyphicon icon-arrow-right"></i></button>
+                    </div>
+                </div>
+                <br>
+                
+            </div>
+
+            <div class="col-lg-4">
+                <h3 style="margin-top: 0px;">Completion</h3>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:1%">0%</div>
+                </div>
+                <h3 style="margin-top: 30px;">Instructions</h3>
+                <ol>
+                    <li> Please provide accurate and correctly spelled details in all fields.
+                    </li><li> Name fields must be spelled correctly and do not use prefix as Smt. , Mr. , Dr. etc.
+                    </li><li> DOB must be same as mentioned in your given documents. Select it from the calender popped after clicking the field or type manually in format of dd/mm/yyyy.
+                    </li><li> Field of OTHER LANGUAGES can be filled with multiple languages seperated by comma ','. example:- lang1,lang2,lang3.
+                    </li><li> Scanned copy of passport size photo and signature attached  must be of size less than 200KB (image file only).
+                    </li><li> Fields marked with '*' are mandatory fields and must not be left empty.
+                    </li><li> Please verify all details before going to next page.</li>
+                </ol>
+            </div>
+        </div>
+        <br><br>
+        <!-- /.row -->
+        </fieldset>
+    </form>
+
+    </div>
+    <!-- /.container -->
+
+
+    <script type="text/javascript">
+        document.getElementById('photo').onchange = function(){
+            var filesize = document.getElementById('photo').files[0].size;
+            filesize = filesize / 1024;
+            if(filesize > 200){
+                document.getElementById('photo').setCustomValidity("Photo must less than 200KB.");
+            } else {
+                document.getElementById('photo').setCustomValidity("");
+            }  
+        }
+
+        document.getElementById('signature').onchange = function(){
+            var filesize = document.getElementById('signature').files[0].size;
+            filesize = filesize / 1024;
+            if(filesize > 200){
+                document.getElementById('signature').setCustomValidity("Photo must less than 200KB.");
+            } else {
+                document.getElementById('signature').setCustomValidity("");
+            }  
+        }
+
+    </script>
+
+
+    {% endblock %}

@@ -1,0 +1,25 @@
+****** In Super user ********
+
+	Make your directory(mkdir dir)
+	cd dir
+
+****** Create virtual environment ******
+
+	virtualenv envname
+
+****** Activate Virtual Env ***********
+
+	source envname/bin/activate
+
+****** Install Djago *********
+
+	pip install django
+	pip install djangorestframework
+	pip install django-cors-headers
+
+****** Run the server ******
+
+	cd Authentication/tutorial
+	## before runserver isntall mysql from mysql_setup
+	python manage.py runserver ip:port 
+

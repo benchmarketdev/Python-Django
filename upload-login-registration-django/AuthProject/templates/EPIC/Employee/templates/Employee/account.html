@@ -1,0 +1,120 @@
+{% extends "Employee/registration_base.html" %}
+{% load staticfiles %}
+
+    {% block body-section %}
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Ecom Express</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/employee/registration/myprofile/">MY PROFILE</a>
+                    </li>
+                    <li>
+                        <a href="/employee/registration/mycontact/">MY CONTACT</a>
+                    </li>
+                    <li>
+                        <a href="/employee/registration/myid/">MY ID</a>
+                    </li>
+                    <li>
+                        <a href="/employee/registration/myfamily/">MY FAMILY</a>
+                    </li>
+                    <li>
+                        <a href="/employee/registration/myacademic/">MY ACADEMIC</a>
+                    </li>
+                    <li>
+                        <a href="/employee/registration/myexperiance/">MY EXPERIANCE</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">ACCOUNT</a>
+                    </li>
+                    <li>
+                        <a href="#">REFERENCE</a>
+                    </li>
+                    <li>
+                        <a href="#">REFERRAL</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+    <form role="form" method="post" action="" enctype="multipart/form-data" >
+        <fieldset>
+        <div class="row">
+            <div class="col-lg-8 cs-box">
+                <h3 class="text-warning">BANK ACCOUNT DETAILS</h3>
+                
+                <hr/>
+                <h5 class="text-primary">ACCOUNT</h5>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label>A/C Number </label>
+                            <input name="account" type="text" placeholder="A/C Number" maxlength="25" class="form-control" value="{{acObj.bankAccount}}" >
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label>Bank Name </label>
+                            <input name="bank" type="text" placeholder="Bank Name" maxlength="100" class="form-control" value="{{acObj.bankName}}" >
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label>IFSC Code</label>
+                            <input name="ifsc" type="text" placeholder="IFSC Code" class="form-control" value="{{acObj.ifscCode}}">
+                        </div>
+                    </div>
+                </div>
+
+                <hr/>
+                <div class="row">
+                    <div class="col-lg-12">
+                        {% csrf_token %}
+                        <input type="hidden" name="iD" value="{{acObj.id}}">
+                        <button type="button" onclick="previous('/employee/registration/myexperiance/')" class="btn btn-primary" ><i class="glyphicon icon-arrow-left"></i> Previous</button>
+                        <button class="btn btn-primary" type="submit">Next <i class="glyphicon icon-arrow-right"></i></button>
+                    </div>
+                </div>
+                <br>
+                
+            </div>
+
+            <div class="col-lg-4">
+                <h3 style="margin-top: 0px;">Completion</h3>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">70%</div>
+                </div>
+                <h3 style="margin-top: 30px;">Instructions</h3>
+                <ol>
+                    <li> Please provide accurate your bank details in all fields.
+                    </li><li> Re-verify your account number and IFSC code provided by your branch.
+                    </li><li> Please verify all details before going to next page.</li>
+                </ol>
+            </div>
+        </div>
+        <br><br>
+        <!-- /.row -->
+        </fieldset>
+    </form>
+
+    </div>
+    <!-- /.container -->
+
+    {% endblock %}
